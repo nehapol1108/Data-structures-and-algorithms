@@ -33,7 +33,7 @@ vector<vector<int>> threeSum(vector<int>&a) {
 }
 
 // Solution 2
-// Time Complexity: O(n^2 * (nlogn))
+// Time Complexity: O(n^2 )
 // Space Complexity : O(3*k) // k is the no.of triplets
 vector<vector<int>> threeSum(vector<int>&a) {
     int n = a.size();
