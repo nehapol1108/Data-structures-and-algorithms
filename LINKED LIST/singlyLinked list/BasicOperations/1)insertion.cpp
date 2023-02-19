@@ -20,6 +20,8 @@ void printLinkedList(node *head){
 }
 
 //insert at begining
+//TC->O(1)
+//SC->O(1)
 node* InsertatFirst(int x,node *head){
     node *newnode = new node(x);
     if(head==NULL){
@@ -30,6 +32,8 @@ node* InsertatFirst(int x,node *head){
     return newnode;
 }
 //insert at end
+//TC->O(n)
+//SC->O(1)
 node* InsertatLast(int x,node *head){
     node *newnode = new node(x);
     node *temp = head;
@@ -44,6 +48,9 @@ node* InsertatLast(int x,node *head){
     return head;
 }
 
+//insert at particular position
+//TC->O(n)
+//SC->O(1)
 node* InsertAtPosition(int x,node *head,int pos){
     node *newnode = new node(x);
     node *temp = head;

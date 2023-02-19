@@ -32,21 +32,18 @@ node* InsertatLast(int x,node *head){
     return head;
 }
 
+//TC->O(n)
+//SC->O(1)
 bool searchElement(node *head,int ele){
     if(head==NULL){
         return false;
     }
     node *temp = head;
-    int flag=0;
     while(temp!=NULL){
         if(temp->data==ele){
-            flag=1;
-            break;
+            return true;
         }
         temp=temp->next;
-    }
-    if(flag==1){
-        return true;
     }
     return false;
 }

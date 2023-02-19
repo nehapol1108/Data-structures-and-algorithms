@@ -33,12 +33,12 @@ node* InsertatLast(int x,node *head){
     return head;
 }
 void deleteNode(node *head,int pos){
-    if(pos==0){
+    if(pos==1){
         head = head->next;
         return;
     }
     node *prev = head;
-    for(int i=0;i<pos-1;i++){
+    for(int i=1;i<pos-1;i++){
         prev = prev->next;
     }
     prev->next = prev->next->next; 
