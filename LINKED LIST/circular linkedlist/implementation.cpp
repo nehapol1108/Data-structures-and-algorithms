@@ -20,6 +20,8 @@ void printLinkedList(node *&head){
 }
 
 //insert at begining
+// Time complexity: O(n)    //if last node is given instead of head then TC->O(1)
+// Auxiliary Space: O(1)
 void InsertatFirst(int x,node *&head){
     node *newnode = new node(x);
     if(head==NULL){
@@ -37,11 +39,14 @@ void InsertatFirst(int x,node *&head){
     
 }
 //insert at end
+// Time Complexity: O(n)  //if last node is given instead of head then TC->O(1)
+// Auxiliary Space: O(1)
 void InsertatLast(int x,node *&head){
     node *newnode = new node(x);
     node *temp = head;
     if(head==NULL){
-        InsertatFirst(x,head);
+        head = newnode;
+        head->next = head;
         return;
     }
     while(temp->next!=head){
@@ -50,6 +55,23 @@ void InsertatLast(int x,node *&head){
     newnode->next = head;
     temp->next = newnode;   
 }
+//insert at between
+// Time Complexity: O(n)  
+// Auxiliary Space: O(1)
+void InsertInBetween(int x,int pos,node *&head){
+    node *newnode = new node(x);
+    node *temp = head;
+    int c=1; //1 based indexing
+    while(temp->next!=head && c!=pos-1){
+        temp = temp->next;
+        c++;
+    } 
+    newnode->next = temp->next;
+    temp->next=newnode;   
+}
+
+
+
 void deleteAtHead(int pos,node *&head){
     node *temp = head;
     while(temp->next!=head){
@@ -60,6 +82,9 @@ void deleteAtHead(int pos,node *&head){
     head = head->next;
     delete todelete;
 }
+
+// Time Complexity: O(N), Worst case occurs when the element to be deleted is the last element and we need to move through the whole list.
+// Auxiliary Space: O(1), As constant extra space is used.
 void Deletion(int pos,node *&head){
     if(pos==1){
         deleteAtHead(pos,head);
@@ -82,11 +107,11 @@ int main(){
     InsertatFirst(30, head);
     InsertatFirst(20, head);
     InsertatFirst(10, head);
+    InsertInBetween(50,3,head);
     printLinkedList(head);
-    Deletion(1,head);
+    Deletion(5,head);
     printLinkedList(head);
-    Deletion(3,head);
-    printLinkedList(head);
+    
 
     return 0;
 }
