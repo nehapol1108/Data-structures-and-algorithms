@@ -43,44 +43,33 @@ ListNode* reverseKGroup(ListNode* head, int k) {
 
 
 //iterative recursive TC- O(N) SC- O(1)
-void reverse(ListNode* &s, ListNode *&e) {
-    ListNode * prev=NULL;
-    ListNode *curr = s;
-    ListNode *nextp=s->next;
-    while(prev!=e){
-        curr->next = prev;
-        prev = curr;
-        curr = nextp;
-        if(nextp!=NULL){
-            nextp=nextp->next;
-        }
-    }          
-}
 ListNode* reverseKGroup(ListNode* head, int k) {
-    if(head==NULL || head->next==NULL || k==1){
-        return head;
+    if(head == NULL||head->next == NULL) return head;
+    int len = 0;
+    ListNode *curr=head;
+    while(curr!=NULL){
+        len++;
+        curr=curr->next;
     }
-    ListNode* dummy=new ListNode(-1);
-    dummy->next = head;
-        ListNode *beforestart = dummy;
-    ListNode *e=head;
-    int i=0;
-    while(e!=NULL){
-        i++;
-        if((i%k)==0){
-            ListNode *s = beforestart->next;
-            ListNode *temp = e->next;
-            reverse(s,e);
-            beforestart->next=e;
-            s->next = temp;
-            beforestart = s;
-            e = temp;
-        }else{
-            e=e->next;
+
+    ListNode *dummy = new ListNode(-1);
+    dummy->next=head;
+    ListNode *prev=dummy;
+    curr=dummy;
+    ListNode *nex=dummy;
+    while(len>=k){
+        curr = prev->next;
+        nex = curr->next;
+        for(int i=1;i<k;i++){
+            curr->next = nex->next;
+            nex->next=prev->next;
+            prev->next=nex;
+            nex=curr->next;
         }
+        prev =curr;
+        len-=k;
     }
     return dummy->next;
-    
 }
 int main(){
     

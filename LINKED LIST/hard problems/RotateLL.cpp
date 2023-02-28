@@ -1,35 +1,35 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-class ListNode{
+class Node{
     public:
         int val;
-        ListNode *next;
-        ListNode(int data){
+        Node *next;
+        Node(int data){
             val = data;
             next = NULL;
         }
 };
 
-ListNode* rotateRight(ListNode* head, int k) {
-    if(head==NULL ||k==0 || head->next==NULL){
-        return head;
-    }
-    int len=1;
-    ListNode* temp = head;
-    while(temp->next!=NULL){
+Node* rotate(Node* head, int k)
+{
+    
+    if(head==NULL || head->next==NULL || k==0)return head;
+    int len = 1;
+    Node *curr = head;
+    while(curr->next!=NULL){
+        curr=curr->next;
         len++;
-        temp = temp->next;
     }
-    temp->next=head;
-    k = k%len;
-    k = len-k-1;
-    temp = head;
+    curr->next=head;
+    k=k%len;
+    k=len-k-1;
+    curr=head;
     while(k--){
-        temp = temp->next;
+        curr=curr->next;
     }
-    head = temp->next;
-    temp->next=NULL;
+    head=curr->next;
+    curr->next=NULL;
     return head;
 }
 int main(){
