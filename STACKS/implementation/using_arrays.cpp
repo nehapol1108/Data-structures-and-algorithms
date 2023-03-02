@@ -1,41 +1,50 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-class Stack{  
-    public:
+class Stack
+{
+public:
     int *a;
     int size;
     int top;
-        Stack(){
-            top = -1;
-            size=1000;
-            a = new int[size];
-        }
-    void push(int x) {
-        if(top==size-1){
-            cout<<"stack is full"<<endl;
+    Stack()
+    {
+        top = -1;
+        size = 1000;
+        a = new int[size];
+    }
+    void push(int x)
+    {
+        if (top == size - 1)
+        {
+            cout << "stack is full" << endl;
             return;
         }
         top++;
         a[top] = x;
     }
-    int pop() {
-        if(top==-1){
-            cout<<"stack is empty"<<endl;
+    int pop()
+    {
+        if (top == -1)
+        {
+            cout << "stack is empty" << endl;
             return -1;
         }
         int x = a[top];
         top--;
         return x;
     }
-    int Top() {
+    int Top()
+    {
         return a[top];
     }
-    int Size() {
+    int Size()
+    {
         return top + 1;
     }
 };
-int main(){
+int main()
+{
     Stack s;
     s.push(6);
     s.push(3);

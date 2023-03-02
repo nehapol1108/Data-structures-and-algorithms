@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
+
+// https://www.youtube.com/watch?v=MxKBRgyO-94&ab_channel=Education4u
 int checkPriority(char s){
     if(s=='+' || s=='-'){
         return 1;

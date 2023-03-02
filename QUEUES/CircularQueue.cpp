@@ -42,12 +42,12 @@ class Queue{
         }
         return val;
     }
-    int getfront(){
+    void getfront(){
         if(rear==-1){
             cout<<"queue is empty"<<endl;
-            return -1;
+            return ;
         }
-        return a[0];
+        cout<<"front "<<a[front]<<endl;
     }
     void printqueue(){
         if (rear >= front)
@@ -55,7 +55,7 @@ class Queue{
             for (int i = front; i <= rear; i++)
                 cout<<a[i]<<" ";
         }else{
-            for(int i=front;i<=rear;i++){
+            for(int i=front;i<size;i++){
                 cout<<a[i]<<" ";
             }
             for (int i = 0; i <= rear; i++){
@@ -78,7 +78,15 @@ int main(){
     q.push(5);
     q.printqueue();
     q.pop();
+    q.pop();
+    q.pop();
+    q.push(21);
+    q.push(6);
     q.printqueue();
-
+    q.pop();
+    q.printqueue();
+    q.pop();
+    q.printqueue();
+    q.getfront();
     return 0;
 }

@@ -59,10 +59,10 @@ class Stack{
         }
 };
 int main(){
-Stack s;
-  s.push(10);
-  cout << "Element popped: " << s.pop() << "\n";
-  cout <<"Stack empty or not? "<<s.stackIsEmpty()<<"\n";
-  cout << "stack's top element: " << s.stackPeek() << "\n";
+    Stack s;
+    s.push(10);
+    cout << "Element popped: " << s.pop() << "\n";
+    cout <<"Stack empty or not? "<<s.stackIsEmpty()<<"\n";
+    cout << "stack's top element: " << s.stackPeek() << "\n";
     return 0;
 }

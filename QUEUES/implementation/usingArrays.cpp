@@ -1,50 +1,51 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
+
+//ALL OPERATIONS ARE O(1)
+// Time complexity: All the operations have O(1) time complexity.
+// Auxiliary Space: O(N) 
 class Queue{
     public:
         int *a;
         int size;
         int data;
         int rear;
+        int front;
     Queue(int size){
         this->size=size;
         a = new int[size];
-        rear = -1;
+        rear = 0;
+        front = 0;
     }
     void push(int x){
-        if(rear==size-1){
+        if(rear==size){
             cout<<"queue is fulll"<<endl;
             return;
         }
-        rear++; 
         a[rear]=x;
+        rear++; 
         cout<<"Inserted value "<<x<<endl;
-        // incase the rear is intialized with 0
-        // a[rear]=x;
-        // rear++;
+    
     }
     int pop(){
-        if(rear==-1){
+        if(rear==front){
             cout<<"queue is empty"<<endl;
             return -1;
         }
-        int val = a[0];
-        for(int i=0;i<rear;i++){
-            a[i] = a[i+1];
-        }
-        rear--;
+        int val = a[front];
+        front++;
         return val;
     }
     int getfront(){
-        if(rear==-1){
+        if(rear==front){
             cout<<"queue is empty"<<endl;
             return -1;
         }
-        return a[0];
+        return a[front];
     }
     void printqueue(){
-        for(int i=0;i<=rear;i++){
+        for(int i=front;i<rear;i++){
             cout<<a[i]<<" ";
         }
         cout<<endl;
@@ -54,6 +55,7 @@ class Queue{
 };
 int main(){
     Queue q(5);
+    q.pop();
     q.push(5);
     q.push(4);
     q.push(2);
