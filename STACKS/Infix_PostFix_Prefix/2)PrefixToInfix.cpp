@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
+// https://practice.geeksforgeeks.org/problems/prefix-to-infix-conversion/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=prefix-to-infix-conversion
+
+//TC->O(N) SC->O(N)
 string preToInfix(string pre) {
     // Write your code here
     reverse(pre.begin(),pre.end());

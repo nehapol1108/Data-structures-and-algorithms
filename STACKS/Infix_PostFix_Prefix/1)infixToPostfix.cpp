@@ -14,6 +14,7 @@ int checkPriority(char s){
     }
     return -1;
 }
+//TC->O(N) SC->O(N)
 string infixToPostfix(string s) {
     string ans="";
     stack<char>st;
@@ -54,7 +55,6 @@ string infixToPostfix(string s) {
 int evaluatePostFix(string s){
     stack<int>st;
     for(int i=0;i<s.size();i++){
-       
         if(s[i]-'0'>=0 && s[i]-'0'<=9){
             st.push(s[i]-'0');
         }else{

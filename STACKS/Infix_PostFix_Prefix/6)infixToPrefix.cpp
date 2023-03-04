@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
+// https://www.youtube.com/watch?v=hFQlsyBl454&ab_channel=ComputerAdx
 int checkPriority(char s){
     if(s=='+' || s=='-'){
         return 1;
@@ -12,6 +13,8 @@ int checkPriority(char s){
     }
     return -1;
 }
+
+//TC->O(N) SC->O(N)
 string infixToPrefix(string s) {
     string ans="";
     stack<char>st;
@@ -20,7 +23,6 @@ string infixToPrefix(string s) {
         if(s[i]==')') s[i]='(';
         else if(s[i]=='(') s[i]=')';
     }
-    cout<<s<<endl;
     for(int i=0;i<s.size();i++){
         if((s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9') || (s[i]>='A' && s[i]<='Z')){
             ans.push_back(s[i]);
