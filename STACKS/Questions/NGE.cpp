@@ -1,6 +1,27 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
+
+
+//TC->O(N^2) SC->(N)
+vector<int> bruteNge(vector<int>a){
+    vector<int>ans;
+    for(int i=0;i<a.size();i++){
+        int flag=0;
+        for(int j=i+1;j<a.size();j++){
+            if(a[j]>a[i]){
+                flag=1;
+                ans.push_back(a[j]);
+                break;
+            }
+        }
+        if(flag==0){
+            ans.push_back(-1);
+        }
+    }
+    return ans;
+}
+
 vector<int> nge(vector<int>a){
     stack<int>s;
     vector<int>ans;
@@ -19,23 +40,7 @@ vector<int> nge(vector<int>a){
     return ans;
 }
 
-vector<int> bruteNge(vector<int>a){
-    vector<int>ans;
-    for(int i=0;i<a.size();i++){
-        int flag=0;
-        for(int j=i+1;j<a.size();j++){
-            if(a[j]>a[i]){
-                flag=1;
-                ans.push_back(a[j]);
-                break;
-            }
-        }
-        if(flag==0){
-            ans.push_back(-1);
-        }
-    }
-    return ans;
-}
+
 
 vector<int> circularnge(vector<int>a){
     stack<int>s;
